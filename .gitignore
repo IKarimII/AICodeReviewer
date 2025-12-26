@@ -1,0 +1,23 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Builds/coverage
+dist/
+build/
+coverage/
+*.log
+
+# Env/secrets
+.env
+.env.*
+backend/.env
+frontend/**/.env
+frontend/**/.env.*
+
+# Editor/OS
+.vscode/
+.DS_Store
+Thumbs.db
