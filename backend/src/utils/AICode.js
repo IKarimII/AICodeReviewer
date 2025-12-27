@@ -46,7 +46,6 @@ export async function reviewCode(code, language) {
   if (!process.env.AIKEY) {
     throw new Error("Missing AIKEY in environment (.env)");
   }
-  console.log(`Prompt: ${prompt}, Language: ${language}`)
 
   const prompt = `
 You are a senior software engineer performing a professional code review.
@@ -67,6 +66,12 @@ Analyze the following ${language} code and provide:
 Code:
 ${code}
 `.trim();
+
+  console.log(
+    `Review request: language=${language}, codeLength=${
+      String(code ?? "").length
+    }`
+  );
 
   const baseMessages = [
     {
