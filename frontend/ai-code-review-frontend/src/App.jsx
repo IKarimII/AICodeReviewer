@@ -8,6 +8,10 @@ function App() {
   const [language, setLanguage] = useState("javascript");
   const [loading, setLoading] = useState(false);
 
+  const API_BASE_URL = (
+    import.meta.env.VITE_API_BASE_URL || "http://localhost:8008"
+  ).replace(/\/$/, "");
+
   function normalizeResult(output) {
     if (typeof output === "string") {
       const trimmed = output.trim();
@@ -48,7 +52,7 @@ function App() {
     { value: "go", label: "Go" },
     { value: "php", label: "PHP" },
     { value: "ruby", label: "Ruby" },
-    {value: "shell command", label:"CMD"}
+    { value: "shell command", label: "CMD" },
   ];
 
   async function reviewCode() {
@@ -68,13 +72,11 @@ function App() {
     }
 
     try {
-      const response = await axios.post(
-        "http://localhost:8008/request/review",
-        {
-          code,
-          language,
-        }
-      );
+      const url = `${API_BASE_URL}/request/review`;
+      const response = await axios.post(url, {
+        code,
+        language,
+      });
 
       if (!response.data.success) {
         throw new Error(response.data.error || "Review failed");
