@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   const [code, setCode] = useState("");
@@ -153,6 +154,7 @@ function App() {
       >
         {loading ? "Reviewing..." : "Review Code"}
       </button>
+      <Analytics />
     </div>
   );
 }
