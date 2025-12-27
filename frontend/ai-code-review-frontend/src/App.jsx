@@ -94,7 +94,7 @@ function App() {
       <h1 className="text-3xl font-bold">AI Code Reviewer</h1>
 
       <div className="w-full flex-1 min-h-0 flex flex-row gap-6">
-        <div className="flex-[2] min-h-0 gap-2 flex flex-col">
+        <div className="flex-2 min-h-0 gap-2 flex flex-col">
           <div className="flex items-center justify-between gap-4">
             <h2 className="text-lg font-semibold">Your code</h2>
             <label className="flex items-center gap-2 text-sm text-zinc-300">
@@ -120,21 +120,21 @@ function App() {
           />
         </div>
 
-        <div className="flex-[1] min-h-0 flex flex-col gap-2">
+        <div className="flex-1 min-h-0 flex flex-col gap-2">
           <h2 className="text-lg font-bold">Response</h2>
           <div className="w-full flex-1 min-h-0 p-4 bg-zinc-900 rounded-lg border border-zinc-700 overflow-auto whitespace-pre-wrap flex flex-col gap-3">
             {result ? (
               <>
                 <h3 className="text-lg font-semibold">Issues</h3>
-                <pre className="whitespace-pre-wrap break-words">
+                <pre className="whitespace-pre-wrap wrap-break-word">
                   {renderValue(result.issues ?? result)}
                 </pre>
                 <h3 className="text-lg font-semibold">Improvements</h3>
-                <pre className="whitespace-pre-wrap break-words">
+                <pre className="whitespace-pre-wrap wrap-break-word">
                   {renderValue(result.improvements)}
                 </pre>
                 <h3 className="text-lg font-semibold">Explanation</h3>
-                <pre className="whitespace-pre-wrap break-words">
+                <pre className="whitespace-pre-wrap wrap-break-word">
                   {renderValue(result.explanation)}
                 </pre>
               </>
